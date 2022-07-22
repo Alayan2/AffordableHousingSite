@@ -10,21 +10,20 @@
                 <mat-tab label="Location Search"> 
 
                   <div>
-                    <h1 class="rounded-md bg-white bg-opacity-10 pt-20" style=" font-size: 15px;
+                    <h1 class="rounded-md bg-white bg-opacity-10 pt-20 font-extralight mb-12" style=" font-size: 20px;
                     line-height: 50px;
-                    font-weight:400;
                     text-align: center; 
                     color: black;">
-                      Compare and rank apartments based on rent and energy costs.
+                      Search by address or neighborhood.
                     </h1>
                   </div>  
 
                       <!-- if the address radio button is selected, autocomplete is pulled from 
                   the addresses in the database -->
                   <div *ngIf="searchPreference=='1'">
-                    <div class="flex justify-center items-center" style="object-fit:scale-down;">
+                    <div class="items-center" style="object-fit:scale-down; text-align: center;">
                       <form class="example-form">
-                        <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-form-field  appearance="outline" style="width:75%">
                           <mat-label class="text-black">Search by address</mat-label>
                           <input type="text"
                                 placeholder="Select an address"
@@ -84,9 +83,8 @@
                 <mat-tab label="Energy Rating Search"> 
 
                   <div>
-                    <h1 class="rounded-md bg-white bg-opacity-10 pt-20" style=" font-size: 15px;
+                    <h1 class="rounded-md bg-white bg-opacity-10 pt-20 font-extralight mb-12" style=" font-size: 20px;
                     line-height: 50px;
-                    font-weight:400;
                     text-align: center; 
                     color: black;">
                      Filter by energy rating.
@@ -122,9 +120,8 @@
                 <mat-tab label="Utility Cost Search"> 
                   
                   <div>
-                    <h1 class="rounded-md bg-white bg-opacity-10 pt-20" style=" font-size: 15px;
+                    <h1 class="rounded-md bg-white bg-opacity-10 pt-20 font-extralight mb-12" style=" font-size: 20px;
                     line-height: 50px;
-                    font-weight:400;
                     text-align: center; 
                     color: black;">
                      Filter by utility costs.
