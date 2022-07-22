@@ -8,7 +8,6 @@ import { Routes } from '@angular/router';
 import { ProductDetailsComponent } from '../../product/product-details/product-details.component';
 import { markersDB } from 'src/app/shared/data/markers';
 
-
 export const routes: Routes = [
   { path: './products/:id', component: ProductDetailsComponent}
 ];
