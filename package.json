@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@angular/cli": "^14.0.4"
+    "@angular/cli": "^14.0.4",
+    "angular-swiper": "^0.4.0"
   }
 }
