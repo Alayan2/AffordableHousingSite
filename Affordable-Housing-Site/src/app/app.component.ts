@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { productsDB } from './shared/data/products';
 
 @Component({
   selector: 'll-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Affordable-Housing-Site';
+  public slides = productsDB.Product;
 }

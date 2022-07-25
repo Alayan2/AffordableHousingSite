@@ -30,7 +30,8 @@
                                 aria-label=""
                                 matInput
                                 [formControl]="myControl"
-                                [matAutocomplete]="auto">
+                                [matAutocomplete]="auto"
+                                >
                           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                             <mat-option *ngFor="let product of products" [value]="product.address">
                               {{product.address}}
@@ -44,16 +45,17 @@
                   <!-- if the neighborhood radio button is selected, autocomplete is pulled from 
                   the options list in the home.component.ts file -->
                   <div *ngIf="searchPreference=='2'">
-                    <div class="flex justify-center items-center" style="object-fit:scale-down;">
+                    <div class="items-center" style="object-fit:scale-down; text-align: center;">
                       <form class="example-form">
-                        <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-form-field appearance="outline" style="width:75%">
                           <mat-label>Search by neighborhood</mat-label>
                           <input type="text"
                                 placeholder="Select a neighborhood"
                                 aria-label=""
                                 matInput
                                 [formControl]="myControl"
-                                [matAutocomplete]="auto">
+                                [matAutocomplete]="auto"
+                                >
                           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                               {{option}}
@@ -80,8 +82,10 @@
                     </div>          
                   </div>
                 </mat-tab>
-                <mat-tab label="Energy Rating Search"> 
 
+                <!--Start optional Energy Rating searche-->
+
+                <mat-tab label="Energy Rating Search"> 
                   <div>
                     <h1 class="rounded-md bg-white bg-opacity-10 pt-20 font-extralight mb-12" style=" font-size: 20px;
                     line-height: 50px;
@@ -90,33 +94,42 @@
                      Filter by energy rating.
                     </h1>
                   </div>  
-                  
-                      <!--Start optional Energy Rating and Utilities Cost searches-->
-                  <div class="mt-3 justify-between flex-wrap"
-                  style="text-align:center; padding-bottom: 40px;padding-top: 20px;">
+                                    
+                  <div class="mt-3 justify-between flex-wrap" style="text-align:center; padding-bottom: 40px;padding-top: 20px;">
+                    
                     <h5 style="text-align:center">Energy Star Rating</h5>
-                    <mat-checkbox style="margin-right:30px;"><img
-                        src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" height="30" width="30" />
+                    
+                    <mat-checkbox style="margin-right:30px;" value="blue" >
+                      <img src="http://maps.google.com/mapfiles/ms/icons/blue.png" height="30" width="30" />
                       Superior<br>5.0 - 4.0
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:30px;"><img
-                        src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" height="30" width="30" />
+                    <mat-checkbox style="margin-right:30px;" value="green" >
+                      <img
+                        src="http://maps.google.com/mapfiles/ms/icons/green.png" height="30" width="30" />
                       Excellent<br>3.9 - 3.0
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:30px;"><img
-                        src="http://maps.google.com/mapfiles/ms/icons/purple-dot.png" height="30" width="30" />
+                    <mat-checkbox style="margin-right:30px;" value="purple" >
+                      <img
+                        src="http://maps.google.com/mapfiles/ms/icons/purple.png" height="30" width="30" />
                       Good<br>2.9 - 2.0
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:30px;"><img
-                        src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" height="30" width="30" />
+                    <mat-checkbox style="margin-right:30px;" value="yellow" >
+                      <img
+                        src="http://maps.google.com/mapfiles/ms/icons/yellow.png" height="30" width="30" />
                       Poor<br>1.9 - 1.0
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:30px;"><img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+                    <mat-checkbox style="margin-right:30px;" value="red" >
+                      <img src="http://maps.google.com/mapfiles/ms/icons/red.png"
                         height="30" width="30" />
                       Non<br>Compiant<br>
                     </mat-checkbox>
                   </div>
                 </mat-tab>
+
+                <!--End optional Energy Range search--> 
+
+                <!--Start optional Utility Estimate search-->
+
                 <mat-tab label="Utility Cost Search"> 
                   
                   <div>
@@ -130,28 +143,28 @@
 
                   <div class="mt-3 justify-between flex-wrap" style="padding-top: 10px; text-align:center">
                     <h5 style="text-align:center">Total Utilities Cost</h5>
-                    <mat-checkbox style="margin-right:10px;"><img src="http://maps.google.com/mapfiles/ms/icons/green.png"
+                    <mat-checkbox style="margin-right:10px;" value="green-dot" ><img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png"
                         height="30" width="30" />
                       Low<br> Under $100
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:10px;"><img
-                        src="http://maps.google.com/mapfiles/ms/icons/lightblue.png" height="30" width="30" />
+                    <mat-checkbox style="margin-right:10px;" value="blue-dot" ><img
+                        src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" height="30" width="30" />
                       Below<br>Average<br> $101 - $150
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:10px;"><img
-                        src="http://maps.google.com/mapfiles/ms/icons/yellow.png" height="30" width="30" />
+                    <mat-checkbox style="margin-right:10px;" value="yellow-dot" ><img
+                        src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" height="30" width="30" />
                       Average<br> $151 - $200
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:10px;"><img
-                        src="http://maps.google.com/mapfiles/ms/icons/orange.png" height="30"
+                    <mat-checkbox style="margin-right:10px;" value="orange-dot" ><img
+                        src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" height="30"
                         width="30" />Above<br>Average<br> $201 - $250
                     </mat-checkbox>
-                    <mat-checkbox style="margin-right:10px;"><img src="http://maps.google.com/mapfiles/ms/icons/red.png"
+                    <mat-checkbox style="margin-right:10px;" value="red-dot" ><img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png"
                         height="30" width="30" />
                       High<br>Over $250
                     </mat-checkbox>
                   </div>
-                  <!--End optional Energy Range and Utility Cost searches--> 
+                  <!--End optional Utility Estimate searches--> 
 
                 </mat-tab>
               </mat-tab-group>
@@ -159,10 +172,11 @@
             </div>
            
             <div class="col-span-3">
-                  <app-esri-map
+                  <app-esri-map #child
                     [center]="mapCenter"
                     [basemap]="basemapType"
                     [zoom]="mapZoomLevel"
+                    [filterVariable] = "filterVariable"
                   >
                   </app-esri-map>
             </div>
@@ -173,12 +187,11 @@
   </div>
 </div>
 
-
 <!-- PRODUCTS TABLE -->
 <div>
   <div class="container">
     <div> 
-      <mat-table #table [dataSource]="products" class="mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource2" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -186,26 +199,33 @@
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-          <mat-cell *matCellDef="let product of products"> 
-            <a [routerLink]="['/products', product.id]" style="color: #004B8D;">{{product.name}} </a></mat-cell>
+          <mat-cell *matCellDef="let product"> 
+            <a [routerLink]="['/products', product.id]" style="color: #004B8D;">{{product.name}} </a>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Neighborhood Column -->
+        <ng-container matColumnDef="neighborhood">
+          <mat-header-cell *matHeaderCellDef> Neighborhood </mat-header-cell>
+          <mat-cell *matCellDef="let product"> {{product.neighborhood}} </mat-cell>
         </ng-container>
 
         <!-- Address Column -->
         <ng-container matColumnDef="address">
           <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
-          <mat-cell *matCellDef="let product of products"> {{product.address}} </mat-cell>
+          <mat-cell *matCellDef="let product"> {{product.address}} </mat-cell>
         </ng-container>
 
         <!-- Rent Column -->
         <ng-container matColumnDef="rent">
           <mat-header-cell *matHeaderCellDef> Rent </mat-header-cell>
-          <mat-cell *matCellDef="let product of products"> {{product.price}} </mat-cell>
+          <mat-cell *matCellDef="let product"> {{product.price}} </mat-cell>
         </ng-container>
 
         <!-- Rating Column -->
         <ng-container matColumnDef="rating">
           <mat-header-cell *matHeaderCellDef> Rating </mat-header-cell>
-          <mat-cell *matCellDef="let product of products"> {{ product.rating }} </mat-cell>
+          <mat-cell *matCellDef="let product"> {{ product.rating }} </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

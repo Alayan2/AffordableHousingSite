@@ -17,6 +17,7 @@ import {MatTableModule} from '@angular/material/table';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { EsriMapComponent } from "./search-list/esri-map/esri-map.component";
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [SearchListComponent, SearchDetailsComponent, SearchHeroComponent, EsriMapComponent],
@@ -35,7 +36,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatChipsModule
 
   ],
   exports: [EsriMapComponent]

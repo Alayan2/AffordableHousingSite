@@ -1,114 +1,156 @@
 <div class="mt-32">
-  <div class="container">  
+  <div class="container">    
     <div class="grid grid-cols-12 gap-8">      
       <div class="col-span-12 md:col-span-6 xl:col-span-6">
-        <br><br>
-        <div  *ngFor="let product of products" >
-          <div *ngIf="product.id == id" class="px-10 mat-elevation-z3" style="height: 350px;">
-            <!-- queries database for specific product id -->
-            <h1 *ngIf="product.id == id" class="_title font-medium pt-10">{{product.name}}</h1>
-            <h3 *ngIf="product.id == id" class="_title font-medium">{{product.address}} <br>Orlando, FL</h3>
-            <h5 *ngIf="product.id == id" class="category text-primary inline-block additional_details">Minimum income requirement: $3600</h5>
-          </div>
-          
-          <br *ngIf="product.id == id" >
-          
-          <h6 *ngIf="product.id == id" class="amenities_languages mat-elevation-z3">Energy use and gas emisions</h6>
-        </div>  
-          <div>
-            <div *ngFor="let product of products" >
-              <div *ngIf="product.id == id" class="amenities_details mat-elevation-z3">
-                <!-- <p> Energy Use Intensity: {{product.siteEIU}} </p>-->
-                <p *ngIf="product.id == id" > Compliance: {{product.compliance}} </p>
-                <div *ngIf="product.id == id" class="energy-star">
-                  <!-- <img class="energy-star-img" src="assets/images/energy_star.png" alt="Energy Star"/>-->
-                  <p *ngIf="product.id == id" class="energy-star-text"> Energy Star&#174; Score  {{product.energyStar}}</p>
-                </div>
-                <p *ngIf="product.id == id" > Site Energy Use Intensity / sq. ft: {{product.siteEIU}} </p>
-                <p *ngIf="product.id == id" > Total Annual Greenhouse Gas Emissions: {{product.gasEmissions}}</p>        
-              </div>
-              <h6 *ngIf="product.id == id" class="amenities_languages">Building size, year and apartment size</h6>
-              <div *ngIf="product.id == id" class="amenities_details  mat-elevation-z3">
-                <p> Builduing size: {{product.buildingSize}} </p>
-                <p> Year built: {{product.yearBuilt}} </p>
-                <p> Apartment size (sq. ft): {{product.sqrFt}} </p>
-                <p>Floor plan: {{product.beds}} and {{product.baths}}</p>
-              </div>
-        
-              <!-- queries database for specific product id -->
-              <div *ngIf="product.id == id" class="mat-elevation-z3">
-                <h6 *ngIf="product.id == id" class="category text-primary text-center">Monthly Rent</h6>
-                <div *ngIf="product.id == id" class="border-b text-center pt-2 pb-2">
-                
-                  <div *ngIf="product.id == id" class="text-primary text-2xl font-semibold">${{product.price}}</div>
-                  </div>
-              </div>
-              <br>
-
-              <h6 *ngIf="product.id == id" class="expenses_title">Other monthly expenses</h6>
-              <div *ngIf="product.id == id" class="other_expenses  mat-elevation-z3">
-                <!-- queries database for specific product id and adds rental price + utilityEstimate-->
-                <p>Electricity: ${{product.utilityEstimate}}</p>
-                <h6 class="expenses_title">Total estimated expenses: &nbsp; &nbsp; &nbsp; ${{product.utilityEstimate + product.price}}</h6>
-
-                <!-- <p>Gas: $20</p>
-                  <p>Water $30</p>
-                  <p>Sewer: $10</p>
-                  <p>Internet: $60</p>
-                  <p>Cable: $20</p>-->
-              </div>
-              <div *ngIf="product.id == id" class="border-b px-5 pt-10 pb-12 text-center">
-                <button mat-flat-button class="py-3 px-20 text-xl font-bold" color="accent"
-                [swal]="{ title: 'You will be redirected to an external website', showDenyButton: true, denyButtonText:'Do not open the link'}" 
-                (confirm)="openNewPage()"
-                (deny)="handleDenial()">
-                More Info
-                </button>
-              </div>
-            <ul *ngIf="product.id == id" class="product-meta flex flex-wrap items-center mt-8 mb-8">
-              <li class="mr-4">
-                <a class="flex items-center pr-4 py-1 hover:text-primary" href="javascript:void(0)">
-                  
-                    <mat-icon class="mr-2" color="warn">stars</mat-icon> 
-                  <!-- queries database for specific product id -->
-                  <!--<div *ngFor="let product of products">-->
-                    <div *ngIf="product.id == id" >
-                      {{product.rating}}/5
-                    </div>
-                  <!--</div>-->
-
-                </a>
-              </li>
-            
-              <li class="mr-4">
-                <a class="flex items-center pr-4 py-1 hover:text-primary" href="javascript:void(0)"
-                  ><mat-icon class="mr-2">share</mat-icon> Share</a
-                >
-              </li>
-            </ul>
-          </div>
-          
-         
-
-          
-      <div class="ll-content mt-8">
-          
-      </div>
-       
-    </div>
-      
-  </div>  
-
+        <div *ngFor="let product of products" >
+        <a *ngIf="product.id == id" href="javascript:void(0)" class="category text-primary inline-block mb-5"><b>Features:</b> {{product.apartmentFeatures}}</a>
      
-  <div class="col-span-12 md:col-span-6 xl:col-span-6"> 
-   
-         
-    <div>
+        <!-- queries database for specific product id -->
+       <!-- <div *ngFor="let product of products" >-->
+          <h1 *ngIf="product.id == id" class="_title font-medium">{{product.name}}</h1>
 
-            
-      <app-esri-details-map></app-esri-details-map>
+          <h3 *ngIf="product.id == id" class="_title font-medium">{{product.address}} <br>Orlando, FL
+          </h3>
 
-          </div>    
+          <!-- <h5 class="category text-primary inline-block mb-5 additional_details">2nd Floor </h5> <br> -->      
+          <h5 *ngIf="product.id == id" class="category text-primary inline-block mb-5 additional_details">Minimum income requirement: $3600</h5>
+          <!-- <h5 class="category text-primary inline-block mb-5 additional_details">Available from June to July</h5>-->
+        
+
+         <br>
+       
+        <h6 *ngIf="product.id == id"  class="amenities_languages">Energy use and gas emisions</h6>
+        <div *ngIf="product.id == id" class="amenities_details">
+        <!-- <p> Energy Use Intensity: {{product.siteEIU}} </p>-->
+         <p> Compliance: {{product.compliance}} </p>
+         <div class="energy-star">
+         <!-- <img class="energy-star-img" src="assets/images/energy_star.png" alt="Energy Star"/>-->
+          <p class="energy-star-text"> Energy Star&#174; Score  {{product.energyStar}}</p>
+         </div>
+         <p> Site Energy Use Intensity / sq. ft: {{product.siteEIU}} </p>
+         <p> Total Annual Greenhouse Gas Emissions: {{product.gasEmissions}}</p>        
+         </div>
+         <h6 *ngIf="product.id == id" class="amenities_languages">Building size, year and apartment size</h6>
+        <div *ngIf="product.id == id" class="amenities_details">
+         <p> Builduing size: {{product.buildingSize}} </p>
+         <p> Year built: {{product.yearBuilt}} </p>
+         <p> Apartment size (sq. ft): {{product.sqrFt}} </p>
+         <p>Floor plan: {{product.beds}} and {{product.baths}}</p>
+        </div>
+        
+        <!-- queries database for specific product id -->
+        <h6 *ngIf="product.id == id" class="category text-primary text-center">Monthly Rent</h6>
+          <div *ngIf="product.id == id" class="border-b text-center pt-2 pb-2">
+            <!--<div *ngFor="let product of products">-->
+              <div class="text-primary text-2xl font-semibold">${{product.price}}</div>
+              </div>
+            <!--</div>-->      
+      <h6 *ngIf="product.id == id" class="expenses_title">Other monthly expenses</h6>
+      <div *ngIf="product.id == id" class="other_expenses">
+        
+        <!-- queries database for specific product id and adds rental price + utilityEstimate-->
+        <!--<div *ngFor="let product of products">-->
+          <p>Electricity: ${{product.utilityEstimate}}</p>
+          <h6 class="expenses_title">Total estimated expenses: &nbsp; &nbsp; &nbsp; ${{product.utilityEstimate + product.price}}</h6>
+        <!--</div>-->
+
+       <!-- <p>Gas: $20</p>
+        <p>Water $30</p>
+        <p>Sewer: $10</p>
+        <p>Internet: $60</p>
+        <p>Cable: $20</p>-->
+      </div>
+        <div *ngIf="product.id == id" class="border-b px-5 pt-10 pb-12 text-center">
+          <button mat-flat-button class="py-3 px-20 text-xl font-bold" color="accent"
+          [swal]="{ title: 'You will be redirected to an external website', showDenyButton: true, denyButtonText:'Do not open the link'}" 
+          (confirm)="openNewPage()"
+          (deny)="handleDenial()">
+          More Info
+        </button>
+        </div>
+        <!--<br>
+        <h6 class="amenities_languages">Languages spoken in this area</h6>-->
+       <!-- <div class="amenities_details">
+        <p>English</p>
+        <p>Spanish</p>
+        <p>Creole</p>
+        </div>-->
+        <ul *ngIf="product.id == id" class="product-meta flex flex-wrap items-center mt-8 mb-8">
+          <li class="mr-4">
+            <a class="flex items-center pr-4 py-1 hover:text-primary" href="javascript:void(0)">
+              
+                <mat-icon class="mr-2" color="warn">stars</mat-icon> 
+              <!-- queries database for specific product id -->
+              <!--<div *ngFor="let product of products">-->
+                <div *ngIf="product.id == id" >
+                  {{product.rating}}/5
+                </div>
+              <!--</div>-->
+
+            </a>
+          </li>
+        
+          <li class="mr-4">
+            <a class="flex items-center pr-4 py-1 hover:text-primary" href="javascript:void(0)"
+              ><mat-icon class="mr-2">share</mat-icon> Share</a
+            >
+          </li>
+        </ul>
+       
+    </div>    
+        <!--<img class="w-full" src="assets/images/products/apartmentPhoto.gif" alt="img not found" />-->
+        <div class="ll-content mt-8">
+          <!--<h5>Special text field</h5>-->
+         <!-- <h5>Testimonials</h5>
+          <h6>Header</h6>-->
+         <!-- <p>Paragraph section</p>-->
+
+          <!--<blockquote>Blockquote section</blockquote>-->
+          <!--<blockquote class="quote">"I have consistently experienced the best residential support
+             services of my life with AAA Property Management"</blockquote>-->
+        </div>
+      </div>
+      <div class="col-span-12 md:col-span-6 xl:col-span-6"> 
+        <!--
+        <div>  
+          <form >
+          <label>
+            <input checked="true" name="list-group"  type="radio"  formControlName="options"  value="map" (change)="changeMap($event)">
+            Map
+          </label>
+          <label>
+            <input type="radio" name="list-group"  formControlName="options"   value="shopping" (change)="changeMap($event)">
+            Restaurants
+          </label>
+          <label>
+            <input type="radio" name="list-group"  formControlName="options"  value="transit" (change)="changeMap($event)">
+            Transit
+          </label>
+          <label>
+            <input type="radio" name="list-group"   formControlName="options"  value="commute" (change)="changeMap($event)">
+            Commute
+          </label>
+          <label>
+            <input type="radio" name="list-group"  formControlName="options"  value="schools" (change)="changeMap($event)">
+            Schools
+          </label>
+        </form>
+         </div>
+        -->
+        
+        <div>
+          <!--
+          <app-esri-map
+          [center]="mapCenter"
+          [basemap]="basemapType"
+          [zoom]="mapZoomLevel"
+        >
+        </app-esri-map> -->
+        <app-esri-details-map></app-esri-details-map>
+
+          <!--<img name="map"  src="/assets/images/google-maps/energy map.jpg" >
+          <img name="map" src={{mapsource}} > src="/assets/images/google-maps/map_single_location3.jpg" -->
+        </div>    
                
           
          <!--<div class="border-b p-5 text-center">
@@ -116,21 +158,42 @@
             <button mat-stroked-button class="py-2 px-12 text-lg font-bold text-gray-700">View all hours</button>
           </div>-->
           <div class="border-b p-5">
-            <div *ngFor="let product of products">
-              <img *ngIf="product.id == id" class="mat-elevation-z3 " src="{{product.images[0]}}" alt="apartment image"/>
-              <a *ngIf="product.id == id" href="javascript:void(0)" class="category text-primary inline-block mb-5 pt-5"><b>Features:</b> {{product.apartmentFeatures}}</a>
-            </div>
             <h5>Contact Info</h5>
-            <div *ngFor="let product of products">
-              <p *ngIf="product.id == id" class="mt-2">&#9742; {{product.contactNumber}}</p>
+            <div class="flex mt-2">
+              <div class="flex-grow">
+                <!-- queries database for specific product id -->
+                <div *ngFor="let product of products">
+                  <p *ngIf="product.id == id" class="mt-2">&#9742; {{product.contactNumber}}</p>
+                 <!-- <img *ngIf="product.id == id" src="{{product.images[0]}}" alt="apartment image"/>-->
+                 <div *ngIf="product.id == id" class="my-carousel">
+                  <ng-container *ngFor="let slide of product.images; let i = index">
+                    <img
+                      *ngIf="i == theIndex"
+                      [src]="slide"
+                      class="my-slide"
+                    />
+                  </ng-container>
+                  <div class="slideController">
+                  <button mat-flat-button class="mt-1 py-0 px-10 text-md-left font-bold prev" color="accent"
+                  (click)="onPrevClick()">Previous</button>
+                  <span class="index">{{theIndex + 1}}</span>
+                  <button mat-flat-button class="mt-1 py-0 px-10 text-md-right font-bold float-right next" color="accent"
+                  (click)="onNextClick()">&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;</button>
+                  </div>
+                 </div>
+                </div>
+              </div>
             </div>
-            <div class="flex mt-4">
-            </div>
+            <div class="flex mt-4"></div>
           </div>
           <div class="border-b px-5 pt-10 pb-12 text-center">
             <button mat-flat-button class="py-3 px-20 text-xl font-bold" color="accent">Contact Property</button>
           </div>
-      </div>
+        </div>
+        <!--<div class="border mt-5 px-5 py-10 text-center">
+          <button mat-stroked-button class="py-2 px-12 text-lg font-bold text-gray-700">Extra Button</button>
+        </div>-->
+    
     </div>
   </div>
 </div>

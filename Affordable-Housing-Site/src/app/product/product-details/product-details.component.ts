@@ -1,4 +1,4 @@
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, NgModule, OnChanges, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FormGroup, FormControl} from '@angular/forms';
 import {productsDB} from '../../shared/data/products';
@@ -11,11 +11,12 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./product-details.component.scss']
 })
 
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit{
   
       //variable for products table
       products: any[] = [];
-
+      //currentSlide: number; 
+      theIndex = 0;  
   // ARCGIS MAP
     // Set our map properties
     mapCenter = [ -81.379234, 28.538336];
@@ -68,17 +69,14 @@ export class ProductDetailsComponent implements OnInit {
       this.products = productsDB.Product
 
 
-
-
       //pulls product id from url routerlink query
       this.route.params.subscribe(params => {
         this.id = params['id'];
       });
-    }
-       
+    }      
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
+     
   }
   selectMap(e: any){
     mapsource: "/assets/images/google-maps/map_single_location3.jpg"
@@ -89,5 +87,15 @@ export class ProductDetailsComponent implements OnInit {
   public handleDenial() : void {
     console.log("Done");
   }
+  onPrevClick() {
+    const previous = this.theIndex - 1;
+    this.theIndex = previous < 0 ? 2 : previous;
+  }
+  onNextClick() {
+    const next = this.theIndex + 1;
+    this.theIndex = next > 2 ? 0 : next;
+  }
 }
+
+
 
